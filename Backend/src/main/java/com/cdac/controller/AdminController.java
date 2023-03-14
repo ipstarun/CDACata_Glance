@@ -24,6 +24,8 @@ import com.cdac.repository.SubjectRepository;
 import com.cdac.service.IMailService;
 import com.cdac.service.IUserService;
 
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -40,6 +42,7 @@ public class AdminController {
 	@Autowired
 	SubjectRepository subjectRepository;
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/new-user")
 	public ResponseEntity<String> addStudentDetails(@RequestBody UserDTO userDTO) {
 	
@@ -55,12 +58,14 @@ public class AdminController {
 	
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	 @GetMapping("/allusers")
 	 public List<UserDTO> getAllStudents(){
 		   
 		   return userService.getAllUser();  
 		   }
 	   
+		   @CrossOrigin(origins = "http://localhost:3000")
 	   @PutMapping("/update-user/{id}")
 	    public ResponseDTO<?> updateStudent(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 	        Users updatedStudent = userService.updateUserDetails(id, userDTO);
@@ -70,18 +75,21 @@ public class AdminController {
 				return new ResponseDTO<>(HttpStatus.UNAUTHORIZED, "error", "Invalid id");
 	   }
 		
+	   @CrossOrigin(origins = "http://localhost:3000")
 	   @DeleteMapping("/delete-user/{id}")
 	    public ResponseEntity<?> deleteStudent(@PathVariable Long id) {
 		   userService.deleteUserDetails(id);
 	        return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
 	    }
 	   
+		@CrossOrigin(origins = "http://localhost:3000")
 	   @PostMapping("/add-subject")
 	   public Courses addSubject(@RequestBody SubjectRequest request) {
 		   
 		   return courseRepository.save(request.getCourses());	
 	   }
 	   
+	   @CrossOrigin(origins = "http://localhost:3000")
 	   @GetMapping("/findAllSubject")
 	   public List<Courses> findAllCourses(){
 		   

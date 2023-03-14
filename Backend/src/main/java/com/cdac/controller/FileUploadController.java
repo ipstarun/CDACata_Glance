@@ -38,7 +38,7 @@ public class FileUploadController {
 	@Autowired
 	private IUserService userService;
 	
-	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/login")
 	public ResponseDTO<?> authenticateStudent(@RequestBody LoginDTO request) {
 		System.out.println("in auth " + request);
@@ -53,7 +53,7 @@ public class FileUploadController {
 
 	
 	
-	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/uploadFile")
 	public FileResponse uploadFile(@RequestParam("file") MultipartFile file) {
 		
@@ -67,6 +67,7 @@ public class FileUploadController {
 		return new FileResponse(fileName.getFileName(),fileDownloadUri,file.getContentType(),file.getSize());
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/uploadMultipleFiles")
 	public List<FileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files){
 		
@@ -87,6 +88,7 @@ public class FileUploadController {
 		
 	}*/
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/getFiles/{id}")
 	public DatabaseFile getFileById(@PathVariable("id") String id) {
 		return fileStorageService.getFile(id);

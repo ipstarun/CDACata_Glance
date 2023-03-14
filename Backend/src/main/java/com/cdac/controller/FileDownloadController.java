@@ -24,6 +24,7 @@ public class FileDownloadController {
 	@Autowired 
 	private IDatabaseFileService fileStorageService;
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	 @GetMapping("/downloadFile/{fileId:.+}")
 	    public ResponseEntity<Resource> downloadFile(@PathVariable String fileId, HttpServletRequest request) {
 	        // Load file as Resource

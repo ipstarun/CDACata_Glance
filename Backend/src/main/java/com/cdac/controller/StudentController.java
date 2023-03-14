@@ -31,6 +31,7 @@ public class StudentController {
 	private IMailService notificationService;
 	
 	// REST API to request handling method to register a new user
+	@CrossOrigin(origins = "http://localhost:3000")
 		@PostMapping("/register")
 		public ResponseEntity<String> addStudentDetails(@RequestBody UserDTO userDTO) {
 			//userDTO.setRole(Role.STUDENT);
@@ -47,7 +48,7 @@ public class StudentController {
 		}
 	
 	
-	  
+		@CrossOrigin(origins = "http://localhost:3000")
 		@PostMapping("/login")
 		public ResponseDTO<?> authenticateStudent(@RequestBody LoginDTO request) {
 			System.out.println("in auth " + request);
@@ -62,10 +63,9 @@ public class StudentController {
 	
 	
 		
-		
+		@CrossOrigin(origins = "http://localhost:3000")
 	   @GetMapping("/{id}")
-	 
-	   public ResponseEntity<Users> getStudent(@PathVariable Long id) {
+	 	   public ResponseEntity<Users> getStudent(@PathVariable Long id) {
 	        Users user = userService.getUserDetails(id);
 	        return ResponseEntity.ok(user);
 	    }

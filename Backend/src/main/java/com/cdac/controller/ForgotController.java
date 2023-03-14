@@ -34,7 +34,7 @@ public class ForgotController {
 	@Autowired
 	HttpSession session;
 	
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/send-otp")
 	public ResponseEntity<String> sendOTP(@RequestParam("email") String email) {
 		//UserDTO userDTO = new UserDTO();
@@ -60,6 +60,7 @@ public class ForgotController {
 		
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/verify-otp")
 	public ResponseEntity<String> verifyOTP(@RequestParam("otp") int otp){
 		
@@ -79,6 +80,7 @@ public class ForgotController {
 		}
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/change-password")
 	public ResponseEntity<String> changePassword(@RequestParam("newpassword") String newpassword){
 
