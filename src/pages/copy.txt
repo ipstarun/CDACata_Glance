@@ -1,0 +1,11 @@
+For React Router // for navigation in react
+npm install react-router-dom
+
+AXIOS :- To connect with Server
+npm install axios 
+
+for courseer
+npm install slick-carousel
+
+for auto typing
+npm i typewriter-effect
